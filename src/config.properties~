@@ -1,6 +1,0 @@
-#modifyThu May 08 16:23:31 CST 2014
-#Thu May 08 16:23:31 CST 2014
-url=jdbc:mysql://localhost:3306/
-username=root
-password=root
-database=bbs
