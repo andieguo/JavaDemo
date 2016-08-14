@@ -6,13 +6,11 @@ import java.util.TimerTask;
 public class TimerTest {
 	static class MyTimerTask1 extends TimerTask {
 		public void run() {
-			System.out.println("±¬Õ¨-1£¡£¡£¡");
 			new Timer().schedule(new MyTimerTask2(), 2000);
 		}
 	}
 	static class MyTimerTask2 extends TimerTask {
 		public void run() {
-			System.out.println("±¬Õ¨-2£¡£¡£¡");
 			new Timer().schedule(new MyTimerTask1(), 3000);
 		}
 	}

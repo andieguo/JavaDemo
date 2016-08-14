@@ -13,8 +13,6 @@ public class VectorTester {
 		
 		vectortest();
 	}
-	//很值得注意的是:Vector可以填充不同类型的元素,那么List集合是否能做到了
-	//capacity 与size的区别
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static void vectortest() {
 		// initial size is 3, increment is 2
@@ -49,7 +47,6 @@ public class VectorTester {
 		System.out.println();
 	}
 	
-	//很值得注意的是:Vector可以填充不同类型的元素,那么List集合是否能做到了
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void listTest(){
 		List list = new ArrayList();

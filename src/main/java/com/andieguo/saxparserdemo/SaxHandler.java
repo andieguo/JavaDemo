@@ -28,14 +28,14 @@ public class SaxHandler extends DefaultHandler {
 	@Override
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 		if (qName.equalsIgnoreCase("book")) {
-			String category = attributes.getValue("category");// 获取book元素的Attributes值
+			String category = attributes.getValue("category");
 			book = new Book();
 			book.setCategory(category);
 			if (bookList == null) {
 				bookList = new ArrayList<Book>();
 			}
 		} else if (qName.equalsIgnoreCase("title")) {
-			String titleLang = attributes.getValue("lang");// 获取title元素的Attributes值
+			String titleLang = attributes.getValue("lang");
 			book.setTitleLang(titleLang);
 			bTitle = true;
 		} else if (qName.equalsIgnoreCase("author")) {
@@ -58,12 +58,12 @@ public class SaxHandler extends DefaultHandler {
 	public void characters(char[] ch, int start, int length) throws SAXException {
 		if (bTitle) {
 			book.setTitle(new String(ch, start, length));
-			bTitle = false;// 解析完后，必须关闭掉；因为解析到下一个元素Author时characters还会被执行，如果不关闭掉会首先执行进来。
+			bTitle = false;
 		} else if (bAuthor) {
 			if (book.getAuthor() == null) {
 				book.setAuthor(new String(ch, start, length));
 			} else {
-				book.setAuthor(book.getAuthor() + "/" + new String(ch, start, length));// 解决有多个作者的问题
+				book.setAuthor(book.getAuthor() + "/" + new String(ch, start, length));
 			}
 			bAuthor = false;
 		} else if (bYear) {

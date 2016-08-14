@@ -31,41 +31,33 @@ public class CreateXMLFile {
 		Element year;
 		Element price;
 		try {
-			// 得到DOM解析器的工厂实例
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-			// 从DOM工厂中获得DOM解析器
 			DocumentBuilder dbBuilder = dbFactory.newDocumentBuilder();
-			// 创建文档树模型对象
 			doc = dbBuilder.newDocument();
 			if (doc != null) {
 				bookstore = doc.createElement("bookstore");
 				for (int i = 0; i < books.size(); i++) {
 					book = doc.createElement("book");
-					//设置元素book的属性值
 					book.setAttribute("category", books.get(i).getCategory());
-					//创建名称为title的元素
 					title = doc.createElement("title");
-					//创建文本节点并作为子节点添加到title元素中
 					title.appendChild(doc.createTextNode(books.get(i).getTitle()));
-					//设置元素title的属性值
 					title.setAttribute("lang", books.get(i).getTitleLang());
-					//将title子元素添加到book中
 					book.appendChild(title);
 					String[] strAuthor = books.get(i).getAuthor().split("/");
 					for(int j=0;j<strAuthor.length;j++){
 						author = doc.createElement("author");
 						author.appendChild(doc.createTextNode(strAuthor[j]));
-						book.appendChild(author);//将多个author子元素添加到book中
+						book.appendChild(author);
 					}
 					year = doc.createElement("year");
 					year.appendChild(doc.createTextNode(books.get(i).getYear().toString()));
-					book.appendChild(year);//将year子元素添加到book中
+					book.appendChild(year);
 					price = doc.createElement("price");
 					price.appendChild(doc.createTextNode(books.get(i).getPrice().toString()));
-					book.appendChild(price);//将price子元素添加到book中
-					bookstore.appendChild(book); //将book作为子元素添加到树的根节点bookstore
+					book.appendChild(price);
+					bookstore.appendChild(book); 
 				}
-				doc.appendChild(bookstore);//添加到文档树中
+				doc.appendChild(bookstore);
 				
 				TransformerFactory transformerFactory = TransformerFactory.newInstance();
 				Transformer transformer = transformerFactory.newTransformer();

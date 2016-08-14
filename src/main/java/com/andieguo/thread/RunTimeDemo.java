@@ -10,22 +10,14 @@ public class RunTimeDemo {
 		//runCommand();
 		runCommand2();
 	}
-	/**
-	 * 没有返回信息
-	 */
 	private static void runCommand2() {
 		try {
-			//windows命令
-			//String cmd = "cmd.exe /c start F:\\hello.txt";
-			String [] cmd={"cmd","/C","start F:\\hello.txt"};//打开F:\\hello.txt
+			String [] cmd={"cmd","/C","start F:\\hello.txt"};
 			Process proc =Runtime.getRuntime().exec(cmd);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	/**
-	 * 执行命令后打印返回信息
-	 */
 	private static void runCommand() {
 		String command = "ipconfig";
 		Runtime run = Runtime.getRuntime();
@@ -37,11 +29,11 @@ public class RunTimeDemo {
 				System.out.println(strline);
 			}
 			if (p.waitFor() != 0) {  
-                if (p.exitValue() == 1)//p.exitValue()==0表示正常结束，1：非正常结束  
-                    System.err.println("命令执行失败!");  
+                if (p.exitValue() == 1)
+                    System.err.println("hello");  
             }  
 			in.close();
-		} catch (IOException | InterruptedException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

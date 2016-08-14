@@ -31,7 +31,7 @@ public class DBConnection {
 			props.load(fis);
 			Class.forName(props.getProperty("DB_DRIVER_CLASS"));
 			con = DriverManager.getConnection(props.getProperty("DB_URL"), props.getProperty("DB_USERNAME"), props.getProperty("DB_PASSWORD"));
-		} catch (IOException | SQLException | ClassNotFoundException e) {
+		}catch (Exception e) {
 			e.printStackTrace();
 		}
 		return con;

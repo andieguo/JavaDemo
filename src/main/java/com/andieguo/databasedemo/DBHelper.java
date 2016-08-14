@@ -8,12 +8,11 @@ import com.andieguo.propertiesdemo.PropertiesHelper;
 public class DBHelper {
 
 	public static DB getDB() {
-		String url = PropertiesHelper.getProperty("url");// 从类路径下面进行加载
+		String url = PropertiesHelper.getProperty("url");
 		String username = PropertiesHelper.getProperty("username");
 		String password = PropertiesHelper.getProperty("password");
 		String database = PropertiesHelper.getProperty("database");
 		return new DB(url + database, username, password);
-
 	}
 
 	public static void main(String[] args) {

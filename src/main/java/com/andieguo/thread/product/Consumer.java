@@ -14,7 +14,7 @@ public class Consumer implements Runnable {
 		for (int i = 0; i < 20; i++) {
 			Product product = ps.pop(name);
 			try {
-				Thread.sleep((int) (Math.random() * 1000));//sleep后进入阻塞状态；交出CPU执行权；
+				Thread.sleep((int) (Math.random() * 1000));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

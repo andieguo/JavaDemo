@@ -11,7 +11,7 @@ public class TimerTaskDemo extends TimerTask{
 		// TODO Auto-generated method stub
 		SimpleDateFormat simpleDateFormat=null;  
         simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
-        System.out.println("当前的系统时间为："+simpleDateFormat.format(new Date()));  
+        System.out.println(""+simpleDateFormat.format(new Date()));  
 	}
 
 }
