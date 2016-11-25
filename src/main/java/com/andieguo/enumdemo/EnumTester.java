@@ -3,12 +3,17 @@ package com.andieguo.enumdemo;
 import junit.framework.TestCase;
 
 public class EnumTester extends TestCase {
+	
 	public enum SensorKey {
-		KEY_Information("Information", "key_Information"), KEY_Light("Light", "key_Light"), KEY_Appliance("Appliance", "key_Appliance");
+		
+		KEY_Information("Information", "key_Information"), 
+		KEY_Light("Light", "key_Light"), 
+		KEY_Appliance("Appliance", "key_Appliance");
+		
 		private String activity;
 		private String key;
 
-		private SensorKey(String activity, String key) {// Ë½ÓÐµÄ»òÓÑºÃµÄ
+		private SensorKey(String activity, String key) {// Ë½ï¿½ÐµÄ»ï¿½ï¿½ÑºÃµï¿½
 			this.key = key;
 			this.activity = activity;
 		}
@@ -27,7 +32,7 @@ public class EnumTester extends TestCase {
 	}
 
 	public void test2() {
-		for (SensorKey sensorKey : SensorKey.values()) {// ±éÀúÃ¶¾Ù
+		for (SensorKey sensorKey : SensorKey.values()) {// ï¿½ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½
 			System.out.println(sensorKey.getKey() + ":" + sensorKey.getActivity());
 		}
 	}
