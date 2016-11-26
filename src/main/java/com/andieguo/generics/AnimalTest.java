@@ -1,6 +1,9 @@
 package com.andieguo.generics;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 
 import junit.framework.TestCase;
@@ -14,6 +17,33 @@ public class AnimalTest extends TestCase {
 	
 	//Bird是Magpie的父类
 	private List<? super Magpie> birdList = new ArrayList<Bird>();
+	
+	//Animal是Magpie的父类
+	private List<? super Magpie> magpieList = new ArrayList<Animal>();
+	
+	private List<? super Bird> birddList = new ArrayList<Bird>();
+
+	//compare比较器
+	public void testAct4(){
+		birddList.add(new Magpie("mage"));
+		birddList.add(new Bird("cat"));
+		Arrays.asList("a", "b", "c");
+		HashSet<String> s2 = new HashSet<String>(Arrays.asList("a", "b", "c"));
+	}
+	
+	public void testAct3(){
+		List<Animal> list = new ArrayList<Animal>();
+		list.add(new Cat("cat1"));
+		list.add(new Cat("bird1"));
+		list.add(new Cat("magpie1"));
+		List<? super Magpie> magpieList = list;
+		Iterator<? super Magpie> iterator = magpieList.iterator();
+		while(iterator.hasNext()){
+			Cat cat = (Cat)iterator.next();
+			cat.jump();
+		}
+	}
+
 
 	public void act(List<Animal> list) {
 		for (Animal animal : list) {
